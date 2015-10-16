@@ -6,6 +6,18 @@
 #include <cmath>
 using namespace std;
 
+// Structures
+struct game
+{
+	int Game_Number;
+	string Date;
+	string Opponent;
+	string Home_Away;
+	string Score;
+	string Their_Score;
+	string Result;
+};
+
 int main()
 {
 	// Local constants
@@ -22,9 +34,12 @@ int main()
 	string Their_Score;
 	string Result;
 	
-	int Count = 0;
+	game game;
+	
 	
 	ifstream fs;				// Input stream
+	
+	
 	
 	
 	/***************************** Start main *****************************/
@@ -52,14 +67,33 @@ int main()
 		// WHILE it isn't the end of the file
 		while(!fs.eof())
 		{
-			getline(fs, Current_Line);
+			getline(fs, Game_Number, ' ');
+			getline(fs, Date, ' ');
+			getline(fs, Opponent, ' ');
+			getline(fs, Home_Away, ' ');
 			
-			Game_Number = Current_Line.substr(Count, Count + 1);
+			if(Home_Away != "H" && Home_Away != "A")
+			{
+				Opponent += " " + Home_Away;
+				getline(fs, Home_Away, ' ');	
+			}
 			
+			getline(fs, Score, ' ');
+			getline(fs, Their_Score, ' ');
+			getline(fs, Result, '\n');
 			
+			game.Game_Number = atoi(Game_Number.c_str());
+			game.Date = Date;
+			game.Opponent = Opponent;
+			game.Home_Away = Home_Away;
+			game.Score = Score;
+			game.Their_Score = Their_Score;
+			game.Result = Result;
 			
-			cout << Game_Number;
+			array_insert(game);
 		}
+		
+		
 		
 	}
 	
