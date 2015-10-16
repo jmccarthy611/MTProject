@@ -14,25 +14,18 @@
  *	ELSE file did open properly
  *		Read first line, but do nothing with it
  *		WHILE it isn't the end of the file
- *			Input Game_Number
- *			Input Date
- *			Input Opponent
- *			Input Home_Away
+ *			Input Game_Number add to game
+ *			Input Date add to game
+ *			Input Opponent add to game
+ *			Input Home_Away add to game
  *			IF Home_Away doesn't equal A or H
  *				Add Home_Away to Opponent
- *				Input Home_Away
+ *				Input Home_Away add to game
  *			END IF
- *			Input Score
- *			Input Their_Score
- *			Input Result
+ *			Input Score add to game
+ *			Input Their_Score add to game
+ *			Input Result add to game
  *			Parse and add Game_Number to Game
- *			Add Date to Game
- *			Add Opponent to Game
- *			Add Home_Away to Game
- *			Add Score to Game
- *			Add Their_Score to Game
- *			Add Result to Game
- *			Call array_insert function
  *		END WHILE
  *END insertFile
  **************************************************************************/
@@ -62,15 +55,9 @@ int main()
 	// Local constants
 	
 	// Local variables
-	string File_Name;					// Name of the user inputted file
-	string Current_Line;				// Current line of the text file
+	string File_Name;					// File name the user inputs
+	string Current_Line;				// Line being read
 	string Game_Number;					// Number of the game played
-	string Date;						// Date of the game
-	string Opponent;					// Who they played against
-	string Home_Away;					// Were they home away?
-	string Score;						// Final score of the game
-	string Their_Score;					// Opponent's score of the game
-	string Result;						// Was it a win or loss?
 	game game;							// Game structure
 	ifstream fs;						// Input stream
 	
@@ -103,59 +90,38 @@ int main()
 			getline(fs, Game_Number, ' ');
 			
 			// Input Date
-			getline(fs, Date, ' ');
+			getline(fs, game.Date, ' ');
 			
 			// Input Opponent
-			getline(fs, Opponent, ' ');
+			getline(fs, game.Opponent, ' ');
 			
 			// Input Home_Away
-			getline(fs, Home_Away, ' ');
+			getline(fs, game.Home_Away, ' ');
 			
 			// IF Home_Away doesn't equal A or H
-			if(Home_Away != "H" && Home_Away != "A")
+			if(game.Home_Away != "H" && game.Home_Away != "A")
 			{
 				// Add Home_Away to Opponent
-				Opponent += " " + Home_Away;
+				game.Opponent += " " + game.Home_Away;
 				
 				// Input Home_Away
-				getline(fs, Home_Away, ' ');	
+				getline(fs, game.Home_Away, ' ');	
 			}
 			
 			// Input Score
-			getline(fs, Score, ' ');
+			getline(fs, game.Score, ' ');
 			
 			// Input Their_Score
-			getline(fs, Their_Score, ' ');
+			getline(fs, game.Their_Score, ' ');
 			
 			// Input Result
-			getline(fs, Result, '\n');
+			getline(fs, game.Result, '\n');
 			
 			// Parse and add Game_Number to game
 			game.Game_Number = atoi(Game_Number.c_str());
-			
-			// Add Date to game
-			game.Date = Date;
-			
-			// Add Opponent to game
-			game.Opponent = Opponent;
-			
-			// Add Home_Away to game
-			game.Home_Away = Home_Away;
-			
-			// Add Score to game
-			game.Score = Score;
-			
-			// Add Their_Score to game
-			game.Their_Score = Their_Score;
-			
-			// Add Result to game
-			game.Result = Result;
 			
 			// Call array_insert function
 			//array_insert(game);
 		}
 	}
-	
-	
-	
 }
