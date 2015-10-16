@@ -1,0 +1,27 @@
+BEGIN Search
+Display menu
+Input choice
+Switch
+	Case 1(Search by game number)
+		Input game number
+	Case 2(Search by opponet name)
+		Input opponet name
+	Case 3(Search by date)
+		Input date
+END Switch
+Display game instance
+END Search
+
+
+//=====================================
+//insert this into each case
+//=====================================
+
+For(int i = 0; i > Array.size(); i++)
+(
+	Game = array[i];
+	if(Game.Game_Number == User input)
+	(
+		return Game;
+	)
+)
