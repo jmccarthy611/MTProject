@@ -18,6 +18,12 @@ struct game
 	string Result;
 };
 
+// Gloabal constants
+
+// Global variables
+int Count = 0;
+game My_Games[]; 
+
 int main()
 {
 	// Local constants
@@ -33,6 +39,8 @@ int main()
 	string Score;
 	string Their_Score;
 	string Result;
+	
+	int i = 0;
 	
 	game game;
 	
@@ -92,9 +100,6 @@ int main()
 			
 			array_insert(game);
 		}
-		
-		
-		
 	}
 	
 	
