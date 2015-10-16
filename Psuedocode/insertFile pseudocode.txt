@@ -1,0 +1,4 @@
+Begin insertFile
+	Input file name
+	Open file
+END insertFile
