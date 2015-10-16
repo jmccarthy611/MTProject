@@ -1,4 +1,11 @@
 Begin insertFile
 	Input file name
 	Open file
+	IF there's a problem opening a file
+		Output error message
+	ELSE file did open properly
+		Read first line, but do nothing with it
+		WHILE it isn't the end of the file
+			Input line
+		END WHILE
 END insertFile
