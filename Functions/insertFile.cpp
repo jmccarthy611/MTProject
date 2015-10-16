@@ -13,10 +13,6 @@ int main()
 	// Local variables
 	string File_Name;
 	
-	string Game_Number;
-	string Date;
-	
-	string Line;
 	string Current_Line;
 	
 	ifstream fs;				// Input stream
@@ -47,18 +43,10 @@ int main()
 		// WHILE it isn't the end of the file
 		while(!fs.eof())
 		{
-			fs >> Game_Number >> Date;
-			
 			getline(fs, Current_Line);
-			
-			cout << Game_Number << Date << endl;
-			
+			cout << Current_Line << "||" << endl;
 		}
 		
-		
-		
-		/*cout << Game_Number << endl;
-		cout << Date << endl;*/
 	}
 	
 	
