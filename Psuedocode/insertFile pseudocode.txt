@@ -1,29 +1,22 @@
 BEGIN insertFile
-	Input file name
-	Open file
-	IF there's a problem opening a file
-		Output error message
-	ELSE file did open properly
-		Read first line, but do nothing with it
-		WHILE it isn't the end of the file
-			Input Game_Number
-			Input Date
-			Input Opponent
-			Input Home_Away
-			IF Home_Away doesn't equal A or H
-				Add Home_Away to Opponent
-				Input Home_Away
-			END IF
-			Input Score
-			Input Their_Score
-			Input Result
-			Parse and add Game_Number to Game
-			Add Date to Game
-			Add Opponent to Game
-			Add Home_Away to Game
-			Add Score to Game
-			Add Their_Score to Game
-			Add Result to Game
-			Call array_insert function
-		END WHILE
+ * 	Input file name
+ *	Open file
+ *	IF there's a problem opening a file
+ *		Output error message
+ *	ELSE file did open properly
+ *		Read first line, but do nothing with it
+ *		WHILE it isn't the end of the file
+ *			Input Game_Number add to game
+ *			Input Date add to game
+ *			Input Opponent add to game
+ *			Input Home_Away add to game
+ *			IF Home_Away doesn't equal A or H
+ *				Add Home_Away to Opponent
+ *				Input Home_Away add to game
+ *			END IF
+ *			Input Score add to game
+ *			Input Their_Score add to game
+ *			Input Result add to game
+ *			Parse and add Game_Number to Game
+ *		END WHILE
 END insertFile
