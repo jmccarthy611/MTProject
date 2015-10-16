@@ -6,6 +6,24 @@ Begin insertFile
 	ELSE file did open properly
 		Read first line, but do nothing with it
 		WHILE it isn't the end of the file
-			Input line
+			Input Game_Number
+			Input Date
+			Input Opponent
+			Input Home_Away
+			IF Home_Away doesn't equal A or H
+				Add Home_Away to Opponent
+				Input Home_Away
+			END IF
+			Input Score
+			Input Their_Score
+			Input Result
+			Add Game_Number to Game
+			Add Date to Game
+			Add Opponent to Game
+			Add Home_Away to Game
+			Add Score to Game
+			Add Their_Score to Game
+			Add Result to Game
+			Call array_insert function
 		END WHILE
 END insertFile
