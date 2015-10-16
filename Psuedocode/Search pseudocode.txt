@@ -8,6 +8,8 @@ Switch
 		Input opponet name
 	Case 3(Search by date)
 		Input date
+	Case 4
+		Input Quit
 END Switch
 Display game instance
 END Search
