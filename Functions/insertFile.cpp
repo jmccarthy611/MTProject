@@ -12,8 +12,17 @@ int main()
 	
 	// Local variables
 	string File_Name;
-	
 	string Current_Line;
+	
+	string Game_Number;
+	string Date;
+	string Opponent;
+	string Home_Away;
+	string Score;
+	string Their_Score;
+	string Result;
+	
+	int Count = 0;
 	
 	ifstream fs;				// Input stream
 	
@@ -44,7 +53,12 @@ int main()
 		while(!fs.eof())
 		{
 			getline(fs, Current_Line);
-			cout << Current_Line << "||" << endl;
+			
+			Game_Number = Current_Line.substr(Count, Count + 1);
+			
+			
+			
+			cout << Game_Number;
 		}
 		
 	}
