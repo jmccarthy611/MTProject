@@ -1,4 +1,4 @@
-Begin insertFile
+BEGIN insertFile
 	Input file name
 	Open file
 	IF there's a problem opening a file
@@ -17,7 +17,7 @@ Begin insertFile
 			Input Score
 			Input Their_Score
 			Input Result
-			Add Game_Number to Game
+			Parse and add Game_Number to Game
 			Add Date to Game
 			Add Opponent to Game
 			Add Home_Away to Game
