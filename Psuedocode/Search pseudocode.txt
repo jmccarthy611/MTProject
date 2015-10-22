@@ -1,29 +1,32 @@
-BEGIN Search
-Display menu
-Input choice
-Switch
-	Case 1(Search by game number)
-		Input game number
-	Case 2(Search by opponet name)
-		Input opponet name
-	Case 3(Search by date)
-		Input date
-	Case 4
-		Input Quit
-END Switch
-Display game instance
-END Search
-
-
-//=====================================
-//insert this into each case
-//=====================================
-
-For(int i = 0; i > Array.size(); i++)
-(
-	Game = array[i];
-	if(Game.Game_Number == User input)
-	(
-		return Game;
-	)
-)
+BEGIN SEARCH
+	Prompt the user to search by game#, opponent, or date
+	Input choice
+	WHILE number is not in range
+		SWITCH choice
+			CASE they pick game#
+				Input game#
+				FOR every item in the array
+					IF game# matches the array
+						Return the index
+					END IF
+				END FOR
+			END CASE
+			CASE they pick opponent
+			FOR every item in the array
+				IF opponent matches the array
+					Return the index
+				END IF
+			END FOR
+			END CASE
+			CASE they pick date
+			FOR every item in the array
+				IF opponent matches the array
+					Return the index
+				END IF
+			END FOR
+			END CASE
+		END SWITCH
+		Prompt the user to search by game#, opponent, or date
+		Input choice
+	END WHILE
+END SEARCH
