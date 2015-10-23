@@ -1,0 +1,2 @@
+Game #, Date, Opponent, Home/Away, Our Score, Their Score, Win/Loss/Tie
+10 1-5-15 Syracuse H 69 73 L
