@@ -38,7 +38,7 @@ int main()
 	int Choice;							// What the user chooses to do at the menu
 	int Game_Number;					// Game number to be searched
 	string Opponent;					// Opponent to be searched
-	string Date							// Date to be searched (mm-dd-year)
+	string Date;							// Date to be searched (mm-dd-year)
 	
 	
 	/***************************** Start main *****************************/
@@ -61,10 +61,11 @@ int main()
 		cout << "2. Opponent" << endl;
 		cout << "3. Date" << endl;
 	
-		// Input choice
+		// Input Choice
 		cin >> Choice;
 	}
 	
+	// SWITCH Choice
 	switch(Choice)
 	{
 		// CASE they pick game#
@@ -90,13 +91,42 @@ int main()
 		
 		// CASE they pick opponent
 		case 2:
+			
+			// Input opponent
+			cout << "Opponent: ";
+			cin >> Opponent;
+			
+			// FOR every item in the array
+			for(int i = 0; i < SIZE; i++)
+			{
+				//IF opponent matchest the array
+				if(My_Games[i].Opponent == Opponent)
+				{
+					// Return the index
+					return i;
+				}
+			}
 		
 		// END CASE 2	
-		break
+		break;
 		
 		// CASE they pick date
 		case 3:
-		
+			
+			// Input opponent
+			cout << "Date (mm-dd-year): ";
+			cin >> Date;
+			
+			// FOR every item in the array
+			for(int i = 0; i < SIZE; i++)
+			{
+				//IF opponent matchest the array
+				if(My_Games[i].Date == Date)
+				{
+					// Return the index
+					return i;
+				}
+			}
 		
 		// END CASE 3	
 		break;
