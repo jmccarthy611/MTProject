@@ -37,6 +37,7 @@ void heading();
 int search(game[], int);
 int insert_game(game[], int);
 bool array_check(game[], int, int);
+int delete_game(game[], int);
 
 // Gloabal constants
 const int SIZE = 20; 					// Default size of the array
@@ -91,6 +92,10 @@ int main()
 				Count = insert_file(My_Games, Count);
 				break;
 				
+			case 4:
+				Count = delete_game(My_Games, Count);
+				break;
+				
 			default:
 				cout << "invalid input";
 				
@@ -98,7 +103,7 @@ int main()
 		}//end switch
 		User_Choice = menu_display();
 	}
-	
+	cout << Count << endl;
 }//end main
 
 /**************************************************************************
@@ -141,7 +146,9 @@ int insert_file(game My_Games[], int Count)
 	string File_Name;					// File name the user inputs
 	string Current_Line;				// Line being read
 	string Game_Number;					// Number of the game played
-	game game;							// Game structure
+	game Game;							// Game structure
+	game Temp;							// Temp structure
+	int J;
 	ifstream fs;						// Input stream
 
 	/***************************** Start insert_file *****************************/
@@ -168,48 +175,73 @@ int insert_file(game My_Games[], int Count)
 	else
 	{
 		// Read first line, but do nothing with it
-		getline(fs, Current_Line);
+		getline(fs, Current_Line, '\n');
 
 		// WHILE it isn't the end of the file
 		while (!fs.eof())
-		{
+		{	
 			// Input Game_Number
 			getline(fs, Game_Number, ' ');
+			
+			// Parse and add Game_Number to game
+			Game.Game_Number = atoi(Game_Number.c_str());
 
 			// Input Date
-			getline(fs, game.Date, ' ');
+			getline(fs, Game.Date, ' ');
 
 			// Input Opponent
-			getline(fs, game.Opponent, ' ');
+			getline(fs, Game.Opponent, ' ');
 
 			// Input Home_Away
-			getline(fs, game.Home_Away, ' ');
+			getline(fs, Game.Home_Away, ' ');
 
 			// IF Home_Away doesn't equal A or H
-			if (game.Home_Away != "H" && game.Home_Away != "A")
+			if (Game.Home_Away != "H" && Game.Home_Away != "A")
 			{
 				// Add Home_Away to Opponent
-				game.Opponent += " " + game.Home_Away;
+				Game.Opponent += " " + Game.Home_Away;
 
 				// Input Home_Away
-				getline(fs, game.Home_Away, ' ');
+				getline(fs, Game.Home_Away, ' ');
 			}
 
 			// Input Score
-			getline(fs, game.Score, ' ');
+			getline(fs, Game.Score, ' ');
 
 			// Input Their_Score
-			getline(fs, game.Their_Score, ' ');
+			getline(fs, Game.Their_Score, ' ');
 
 			// Input Result
-			getline(fs, game.Result, '\n');
-
-			// Parse and add Game_Number to game
-			game.Game_Number = atoi(Game_Number.c_str());
-			
-			if(array_check(My_Games, Count, game.Game_Number))
+			getline(fs, Game.Result, '\n');
+						
+			if(array_check(My_Games, Count, Game.Game_Number))
 			{
-				My_Games[Count] = game;
+				My_Games[Count] = Game;
+				
+				// FOR(Every spot in the array)
+				for(int i = 1; i <= Count; i++)
+				{
+					// Copy value from array to Temp
+					Temp = My_Games[i];
+		
+					// Set J equal to index
+					J = i;
+		
+					// WHILE(J is greater than 0 and Num_Array is greater than Temp)
+					while(J > 0 && My_Games[J - 1].Game_Number > Temp.Game_Number)
+					{
+						// Shift the array
+						My_Games[J] = My_Games[J - 1];
+			
+						// Decrement J
+						J--;
+					}
+		
+					// Set Array at index J to Temp
+					My_Games[J] = Temp;
+		
+				} // END FOR
+					
             	Count++;
 			}
 		}
@@ -243,8 +275,8 @@ void season_summary(game My_Games[], int Count)
 	
 	for(int i = 0; i < Count; i++)
 	{
-		cout << My_Games[i].Game_Number << endl;
-		cout << My_Games[i].Date << endl;
+		cout << "Game number: " << My_Games[i].Game_Number << endl;
+		cout << "Date: " << My_Games[i].Date << endl;
 	}
 	
 }
@@ -271,7 +303,7 @@ int menu_display()
 	/*************************** Start menu_display ***************************/
 	
 	// Call heading function
-	heading();
+	//heading();
 	
 	cout << setw(45) << "Menu Display" << endl;
 	cout << setw(50) << "1) Season summary" << endl;
@@ -438,16 +470,47 @@ bool array_check(game My_Games[], int Count, int Game_Number)
 	// Local constants
 	
 	// Local variables
+	bool Flag = false;
 	
 	/***************************** Start array_check *****************************/
 	
-	for(int i = 0; i < Count; i++)
+	if(Count == 0)
+		return true;
+	
+	for(int i = 0; (i < Count) && (Flag != true); i++)
 	{
-		if(My_Games[i].Game_Number = Game_Number)
-			return true;
-		
-		else
-			return false;
+		if(My_Games[i].Game_Number == Game_Number)
+			Flag = true;
 	}
+	
+	return !Flag;
 }
 
+int delete_game(game My_Games[], int Count)
+{
+	int temp = 0;
+	int Choice = 0;
+	temp = search(My_Games, Count);
+	while (Choice > 2 || Choice < 1)
+	{
+		// Prompt the user to search by game#, opponent, or date
+		cout << "Are you sure you want to delete this game?" << endl;
+		cout << "1. Yes" << endl;
+		cout << "2. No" << endl;
+	
+		// Input Choice
+		cin >> Choice;
+	}
+	
+	if(Choice == 1)
+	{
+	 	while(temp < Count)
+		{
+			My_Games[temp] = My_Games[temp + 1];
+			temp++;
+		}
+		Count -= 1;	
+	}
+
+	return Count;
+}

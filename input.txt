@@ -1,4 +1,16 @@
 Game #, Date, Opponent, Home/Away, Our Score, Their Score, Win/Loss/Tie
-1 11-5-15 St. Johns H 78 73 W
 3 11-8-15 Georgetown A 87 86 W
+4 1-2-16 Washington St H 87 89 L
+4 1-2-16 Washington St H 87 89 L
+4 1-2-16 Washington St H 87 89 L
+4 1-2-16 Washington St H 87 89 L
+4 1-2-16 Washington St H 87 89 L
+4 1-2-16 Washington St H 87 89 L
+4 1-2-16 Washington St H 87 89 L
+4 1-2-16 Washington St H 87 89 L
+4 1-2-16 Washington St H 87 89 L
+4 1-2-16 Washington St H 87 89 L
+4 1-2-16 Washington St H 87 89 L
+3 11-8-15 Georgetown A 87 86 W
+1 11-5-15 St. Johns H 78 73 W
 4 1-2-16 Washington St H 87 89 L
