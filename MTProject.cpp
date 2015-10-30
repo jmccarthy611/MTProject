@@ -56,11 +56,14 @@ int main()
 	
 	/*************************** Start main ***************************/
 	
+	// Call heading function
+	heading();
+	
 	// Load text file to array
-	Count = insert_file(My_Games, Count);
+	Count = insert_file(Temp, Count);
 	
 	// Heading function
-	heading();
+	//heading();
 	
 	// Menu display function
 	User_Choice = menu_display();
@@ -129,7 +132,7 @@ int main()
 *END insertFile
 **************************************************************************/
 
-int insert_file(game My_Games[], int Count)
+int insert_file(game Temp[], int Count)
 {
 	// Local constants
 
@@ -143,17 +146,21 @@ int insert_file(game My_Games[], int Count)
 	/***************************** Start insert_file *****************************/
 
 	// Input file name
-	cout << "File name: ";
+	cout << setw(40) << "File name: ";
 	cin >> File_Name;
 
 	// Open file
 	fs.open(File_Name.c_str());
 
 	// IF there's a problem opening the file
-	if (fs.fail())
+	if(fs.fail())
 	{
 		// Output error message
-		cout << "File DNE";
+		cout << "File " << endl;
+		
+		// Input file name
+		cout << setw(40) << "File name: ";
+		cin >> File_Name;
 	}
 
 	// ELSE file did open properly
@@ -198,10 +205,9 @@ int insert_file(game My_Games[], int Count)
 
 			// Parse and add Game_Number to game
 			game.Game_Number = atoi(Game_Number.c_str());
-
-			// Call array_insert function
-			My_Games[Count] = game;
-			Count++;
+			
+			Temp[Count] = game;
+            Count++;
 		}
 		
 		return Count;
@@ -261,13 +267,16 @@ int menu_display()
 	
 	/*************************** Start menu_display ***************************/
 	
-	cout << "Choose one of the following options: " << endl;
-	cout << "1) Season summary\n" << endl;
-	cout << "2) Search for a game\n" << endl;
-	cout << "3) Enter a new game\n" << endl;
-	cout << "4) Delete a game\n" << endl;
-	cout << "5) Quit\n" << endl;
-	cout << "-> " << endl;
+	// Call heading function
+	heading();
+	
+	cout << setw(46) << "Menu Display" << endl;
+	cout << setw(51) << "1) Season summary" << endl;
+	cout << setw(54) << "2) Search for a game" << endl;
+	cout << setw(53) << "3) Enter a new game" << endl;
+	cout << setw(50) << "4) Delete a game" << endl;
+	cout << setw(42) << "5) Quit\n" << endl;
+	cout << setw(36) << "-> ";
 	
 	cin >> Choice;
 
