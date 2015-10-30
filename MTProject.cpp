@@ -199,13 +199,26 @@ int insert_file(game My_Games[], int Count)
 			// Parse and add Game_Number to game
 			game.Game_Number = atoi(Game_Number.c_str());
 
-			// Call array_insert function
-			My_Games[Count] = game;
-			Count++;
-		}
-		
-		return Count;
-	}
+            // FOR every item in the array
+            for(int i = 0; i < SIZE; i++)
+            {
+                // IF game# matches the array
+                if(My_Games[i].Game_Number = atoi(Game_Number.c_str()))
+                {
+                    // Output game# already exists
+                    cout << "Game Number: " << Game_Number << " already exists" << endl ;
+                }
+                else
+                {
+                    // Call array_insert function
+                    My_Games[Count] = game;
+                    Count++;
+                }
+            }
+            
+            
+        }
+        return Count;
 }
 
 /**************************************************************************
