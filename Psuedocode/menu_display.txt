@@ -1,0 +1,6 @@
+BEGIN menu_display
+	Call heading function
+	Output menu
+	Input user choice
+	RETURN choice to main
+END menu_display

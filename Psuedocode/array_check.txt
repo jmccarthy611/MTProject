@@ -1,0 +1,11 @@
+BEGIN array_check(My_Games array, Count, Game_Number from main)
+	IF My_Games is empty
+		RETURN true to main
+	END IF
+	FOR(Every Game in My_Games and Flag is not true)
+		IF there's a duplicate game
+			Set the flag to true
+		END IF
+	END FOR
+	RETURN !Flag to main
+END array_check

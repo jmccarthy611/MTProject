@@ -1,0 +1,25 @@
+BEGIN main
+	Call the heading function
+	Call the menu display function
+	WHILE(the user doesn't want to quit)
+		SWITCH the user's choice
+			CASE they pick season summary
+				Call the season summary function
+			END CASE
+			CASE they want to search for a game
+				Call the search function
+				Output the game searched
+			END CASE
+			CASE they want to add a new file
+				Call the insert file function
+			END CASE
+			CASE they want to delete a game
+				Call the delete game function
+			END CASE
+			DEFAULT invalid input
+				Output error message
+			END CASE
+		END SWITCH
+		Call the menu display function
+	END WHILE
+END main

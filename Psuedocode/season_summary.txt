@@ -1,0 +1,9 @@
+BEGIN season_summary
+	Call heading function
+	FOR(Every index in the array)
+		IF it's the first time through the loop
+			Output a row of stars
+		END IF
+		Output the information about all the games
+	END FOR
+END season_summary

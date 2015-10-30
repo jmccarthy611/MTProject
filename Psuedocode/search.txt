@@ -1,32 +1,37 @@
-BEGIN SEARCH
+BEGIN search
 	Prompt the user to search by game#, opponent, or date
 	Input choice
 	WHILE number is not in range
 		Prompt the user to search by game#, opponent, or date
-		Input choice
+		Input Choice
 	END WHILE
-	SWITCH choice
+	SWITCH Choice
 		CASE they pick game#
 			Input game#
 			FOR every item in the array
 				IF game# matches the array
-					Return the index
+					RETURN the index
 				END IF
 			END FOR
 		END CASE
 		CASE they pick opponent
+			Input opponent
 			FOR every item in the array
 				IF opponent matches the array
-					Return the index
+					RETURN the index
 				END IF
 			END FOR
 		END CASE
 		CASE they pick date
+			Input opponent
 			FOR every item in the array
 				IF opponent matches the array
 					Return the index
 				END IF
 			END FOR
 		END CASE
+		DEFAULT invalid input
+			Output error message
+		END CASE
 	END SWITCH
-END SEARCH
+END search

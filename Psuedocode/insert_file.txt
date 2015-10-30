@@ -1,0 +1,37 @@
+BEGIN insert_file
+	Input file name
+	Open file
+	IF there's a problem opening the file
+		Output error message
+	ELSE file did open properly
+		Read first line, but do nothing with it
+		WHILE it isn't the end of the file
+			Input Game_Number
+			Parse and add Game_Number to game
+			Input Date
+			Input Opponent
+			Input Home_Away
+			IF Home_Away doesn't equal A or H
+				Add Home_Away to Opponent
+				Input Home_Away
+			END IF
+			Input Score
+			Input Their_Score
+			Input Result
+			IF the game isn't a duplicate
+				Add game to array
+				FOR(Every spot in the array)
+					Copy value from array to Temp
+					Set J equal to index
+					WHILE(J is greater than 0 and Num_Array is greater than Temp)
+						Shift the array
+						Decrement J
+					END WHILE
+					Set Array at index J to Temp
+				END FOR
+				Increment Count
+			END IF
+		END WHILE
+		RETURN Count to main
+	END IF
+END insert_file

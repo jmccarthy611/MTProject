@@ -1,0 +1,18 @@
+BEGIN delete_game(My_Games array, Count from main)
+	Call the search function
+	Ask the user if they really want to delete
+	Input choice
+	WHILE(there's invalid input)
+		Output error message
+		Ask the user if they really want to delete
+		Input choice
+	END WHILE
+	IF(User chooses to delete)
+		WHILE temp is less than Count
+			Shift My_Games
+			Increment Temp
+		END WHILE
+		Decrement Count
+	END IF
+	RETURN Count to main
+END delete_game
