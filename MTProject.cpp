@@ -36,6 +36,7 @@ void season_summary(game[], int);
 void heading();
 int search(game[], int);
 int insert_game(game[], int);
+bool array_check(game[], int, int);
 
 // Gloabal constants
 const int SIZE = 20; 					// Default size of the array
@@ -60,10 +61,10 @@ int main()
 	heading();
 	
 	// Load text file to array
-	Count = insert_file(Temp, Count);
+	Count = insert_file(My_Games, Count);
 	
 	// Heading function
-	//heading();
+	heading();
 	
 	// Menu display function
 	User_Choice = menu_display();
@@ -96,7 +97,7 @@ int main()
 			
 		}//end switch
 		User_Choice = menu_display();
-	}//end while
+	}
 	
 }//end main
 
@@ -132,7 +133,7 @@ int main()
 *END insertFile
 **************************************************************************/
 
-int insert_file(game Temp[], int Count)
+int insert_file(game My_Games[], int Count)
 {
 	// Local constants
 
@@ -206,8 +207,11 @@ int insert_file(game Temp[], int Count)
 			// Parse and add Game_Number to game
 			game.Game_Number = atoi(Game_Number.c_str());
 			
-			Temp[Count] = game;
-            Count++;
+			if(array_check(My_Games, Count, game.Game_Number))
+			{
+				My_Games[Count] = game;
+            	Count++;
+			}
 		}
 		
 		return Count;
@@ -241,7 +245,6 @@ void season_summary(game My_Games[], int Count)
 	{
 		cout << My_Games[i].Game_Number << endl;
 		cout << My_Games[i].Date << endl;
-		
 	}
 	
 }
@@ -270,12 +273,12 @@ int menu_display()
 	// Call heading function
 	heading();
 	
-	cout << setw(46) << "Menu Display" << endl;
-	cout << setw(51) << "1) Season summary" << endl;
-	cout << setw(54) << "2) Search for a game" << endl;
-	cout << setw(53) << "3) Enter a new game" << endl;
-	cout << setw(50) << "4) Delete a game" << endl;
-	cout << setw(42) << "5) Quit\n" << endl;
+	cout << setw(45) << "Menu Display" << endl;
+	cout << setw(50) << "1) Season summary" << endl;
+	cout << setw(53) << "2) Search for a game" << endl;
+	cout << setw(52) << "3) Enter a new game" << endl;
+	cout << setw(49) << "4) Delete a game" << endl;
+	cout << setw(41) << "5) Quit\n" << endl;
 	cout << setw(36) << "-> ";
 	
 	cin >> Choice;
@@ -430,4 +433,21 @@ int search(game My_Games[], int Count)
 	}
 }
 
+bool array_check(game My_Games[], int Count, int Game_Number)
+{
+	// Local constants
+	
+	// Local variables
+	
+	/***************************** Start array_check *****************************/
+	
+	for(int i = 0; i < Count; i++)
+	{
+		if(My_Games[i].Game_Number = Game_Number)
+			return true;
+		
+		else
+			return false;
+	}
+}
 
